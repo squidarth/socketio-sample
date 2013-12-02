@@ -1,0 +1,18 @@
+{
+    "name": "SocketIOTest",
+    "version": "0.0.0-1",
+    "description": "A fun chat app!",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "ejs": "latest",
+        "nodemon": "latest"
+    },
+    "subdomain": "testchat58",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "engines": {
+        "node": "0.10.x"
+    }
+}
