@@ -8,6 +8,7 @@ console.log(app.settings.env);
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(request, response) {
+  // here, need to do a query for the messages.
   response.render("index.ejs", {env: app.settings.env, title: "Hello World"});
 });
 
@@ -17,5 +18,6 @@ io.sockets.on("connection", function(socket) {
   socket.emit("message", {user: "The room", message: "Hello"});
   socket.on("send", function(data) {
     socket.emit("message", {user: data.user, message: data.message});
+    // here, need to persist the message, with user and message 
   });
 });
