@@ -19,12 +19,18 @@
     <div class="container">
       <h1><%= title %></h1>
 
-    <form>
+    <form class="channel-selector">
+      <p><label>Channel: </label><input class="channel-input" type="text" /></p>
+      <p><button class="form-submit">Submit</button></p>
+    </form>
+    
+    <form class="message-form">
       <p><label>Name: </label><input class="name-input" type="text" /></p>
       <p><label>Message: </label><input class="message-input" type="text" /></p>
       <p><button class="form-submit">Submit</button></p>
     </form>
 
+    <h2 class="room-name"></h2>
     <table class="table table-striped">
       <thead>
         <tr>

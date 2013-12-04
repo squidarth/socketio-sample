@@ -15,9 +15,14 @@ app.get("/", function(request, response) {
 io = require("socket.io").listen(app.listen(port));
 // build this up slowly, don't immediately start with the messages.
 io.sockets.on("connection", function(socket) {
-  socket.emit("message", {user: "The room", message: "Hello"});
+
+  socket.on('subscribe', function(channel) {
+    socket.join(channel);
+  });
+
   socket.on("send", function(data) {
-    socket.emit("message", {user: data.user, message: data.message});
+    console.log(data.channel);
+    io.sockets.in(data.channel).emit("message", {user: data.user, message: data.message});
     // here, need to persist the message, with user and message 
   });
 });
